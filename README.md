@@ -26,11 +26,6 @@ Contributions and Improvements 🛠️
 
 Feel free to contribute to the PDF Guru Chatbot project! Whether it's adding more PDF jokes, improving the user interface, or expanding its knowledge base, we welcome your creativity and expertise. Just remember to keep it fun and light-hearted!
 
-Contact Us 📧
-
-Have questions or suggestions? Reach out to us at jonathan@nimda.sh We're here to assist you with all your PDF needs and tickle your funny bone.
-
-
 Disclaimer 📢
 
 The PDF Guru Chatbot is not responsible for any laughter-induced accidents or spilt coffee while using the chatbot.
