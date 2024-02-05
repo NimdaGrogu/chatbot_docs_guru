@@ -42,7 +42,8 @@ def handle_userinput(question: str):
                 else:
                     st.write(bot_template.replace(
                         "{{MSG}}", message.content), unsafe_allow_html=True)
-            logger.info("OpenAI: " + str(cb))
+            #logger.info("OpenAI: " + str(cb))
+            print(cb)
         except Exception as e:
             logger.error(f"Exception type: {type(e).__name__}")
             logger.error(f"Exception message: {e}")
