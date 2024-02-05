@@ -5,6 +5,7 @@ import streamlit as st
 from htmlTemplates import css, bot_template, user_template, markdown
 import logging
 
+
 def main():
     logger = logging.getLogger("ChatBot")
     # Set the logging level to INFO
@@ -52,7 +53,6 @@ def main():
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
             st.success("Done!")
-
 
 
 if __name__ == '__main__':

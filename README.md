@@ -18,10 +18,8 @@ Hit "Enter" and let the PDF Guru work its magic!
 Be prepared for both useful information and a good chuckle.
 Example Queries 💬
 
-"How do I merge two PDFs into one?"
-"Can you help me find the hidden treasure in this PDF?"
-"What's the difference between a PDF and a penguin?"
-"Tell me a PDF joke, please!"
+"Give me a detailed Summary?"
+
 Contributions and Improvements 🛠️
 
 Feel free to contribute to the PDF Guru Chatbot project! Whether it's adding more PDF jokes, improving the user interface, or expanding its knowledge base, we welcome your creativity and expertise. Just remember to keep it fun and light-hearted!
@@ -32,3 +30,12 @@ The PDF Guru Chatbot is not responsible for any laughter-induced accidents or sp
 If the chatbot's jokes are too funny, you may experience uncontrollable giggling. Use with caution in professional environments.
 The PDF Guru Chatbot may occasionally dream of becoming a PDF superhero, but we assure you it's still focused on answering your questions.
 Remember, life's too short to take PDFs too seriously. Enjoy your time with the PDF Guru Chatbot and let it brighten your day, one PDF joke at a time! 😄
+
+Architecture
+
+![System Architecture](./logos/chatBotopenai-2.png)
+
+Next Features:  
+* WebSite text extraction
+* Word Documents 
+* Secure Documents Upload for Knowledge Base 

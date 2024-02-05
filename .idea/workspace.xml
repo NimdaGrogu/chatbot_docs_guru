@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="Picture dir commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlTemplates.py" beforeDir="false" afterPath="$PROJECT_DIR$/htmlTemplates.py" afterDir="false" />
+    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="htmlTemplates.py changes">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
       <updated>1706744773676</updated>
       <workItem from="1706744800683" duration="464000" />
       <workItem from="1706745268545" duration="9961000" />
-      <workItem from="1707163252510" duration="4253000" />
+      <workItem from="1707163252510" duration="5065000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -122,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707168058671</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="htmlTemplates.py changes">
+      <option name="closed" value="true" />
+      <created>1707168306448</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707168306448</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +142,7 @@
     <MESSAGE value="README.md modification" />
     <MESSAGE value="HTML Templates chages" />
     <MESSAGE value="Picture dir commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Picture dir commit" />
+    <MESSAGE value="htmlTemplates.py changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="htmlTemplates.py changes" />
   </component>
 </project>
