@@ -28,16 +28,20 @@ css = '''
 bot_template = '''
 <div class="chat-message bot">
     <div class="avatar">
-        <img src="logos/chatbot_avatar.png" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
+        <img src="https://github.com/NimdaGrogu/chatbot_openai/blob/main/logos/chatbot_avatar.png?raw=true" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
     </div>
     <div class="message">{{MSG}}</div>
 </div>
 '''
 
 
-user_template = '''<div class="chat-message user"> <div class="avatar"> <img 
-src="https://i.ibb.co/R4sqwXd/1077114.jpg" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: 
-cover;"> </div> <div class="message">{{MSG}}</div> </div>'''
+user_template = '''<div class="chat-message user"> 
+<div class="avatar"> 
+    <img src="https://i.ibb.co/R4sqwXd/1077114.jpg" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;"> 
+</div> 
+<div class="message">{{MSG}}</div> 
+</div>'''
+
 markdown = """
     <style>
     .stApp {

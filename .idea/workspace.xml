@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="README.md modification">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="Picture dir commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserImput.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserImput.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faiss_index/index.faiss" beforeDir="false" afterPath="$PROJECT_DIR$/faiss_index/index.faiss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faiss_index/index.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/faiss_index/index.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlTemplates.py" beforeDir="false" afterPath="$PROJECT_DIR$/htmlTemplates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +42,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/logos" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -64,7 +64,7 @@
       <updated>1706744773676</updated>
       <workItem from="1706744800683" duration="464000" />
       <workItem from="1706745268545" duration="9961000" />
-      <workItem from="1707163252510" duration="3862000" />
+      <workItem from="1707163252510" duration="4253000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -90,7 +90,39 @@
       <option name="project" value="LOCAL" />
       <updated>1706808051512</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="HTML Templates chages">
+      <option name="closed" value="true" />
+      <created>1707167940361</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707167940361</updated>
+    </task>
+    <task id="LOCAL-00005" summary="HTML Templates chages">
+      <option name="closed" value="true" />
+      <created>1707168006283</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707168006283</updated>
+    </task>
+    <task id="LOCAL-00006" summary="HTML Templates chages">
+      <option name="closed" value="true" />
+      <created>1707168014844</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707168014844</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Picture dir commit">
+      <option name="closed" value="true" />
+      <created>1707168058671</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707168058671</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +132,8 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="README.md" />
     <MESSAGE value="README.md modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="README.md modification" />
+    <MESSAGE value="HTML Templates chages" />
+    <MESSAGE value="Picture dir commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Picture dir commit" />
   </component>
 </project>
