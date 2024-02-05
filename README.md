@@ -26,10 +26,6 @@ Feel free to contribute to the PDF Guru Chatbot project! Whether it's adding mor
 
 Disclaimer 📢
 
-The PDF Guru Chatbot is not responsible for any laughter-induced accidents or spilt coffee while using the chatbot.
-If the chatbot's jokes are too funny, you may experience uncontrollable giggling. Use with caution in professional environments.
-The PDF Guru Chatbot may occasionally dream of becoming a PDF superhero, but we assure you it's still focused on answering your questions.
-Remember, life's too short to take PDFs too seriously. Enjoy your time with the PDF Guru Chatbot and let it brighten your day, one PDF joke at a time! 😄
 
 Architecture
 
