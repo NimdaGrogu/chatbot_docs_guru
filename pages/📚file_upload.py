@@ -10,10 +10,9 @@ def main():
     logger = logging.getLogger("ChatBot")
     # Set the logging level to INFO
     logger.setLevel(logging.INFO)
-    st.set_page_config(page_title="Chatbot",
-                       page_icon="🤖",
-                       layout="centered",
-                       initial_sidebar_state="collapsed")
+    st.set_page_config(page_title="Upload Files", page_icon="book",
+                       layout="wide"
+                       )
     st.write(css, unsafe_allow_html=True)
 
     st.header("Knowledge Base :open_book:")
