@@ -31,6 +31,7 @@ Architecture
 
 ![System Architecture](./logos/chatBotopenai-2.png)
 
+
 Demo
 ![Screenshot](./logos/ChatBot.png)
 Next Features:  
