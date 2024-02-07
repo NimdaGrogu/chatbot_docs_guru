@@ -33,7 +33,7 @@ Architecture
 
 
 Demo
-![Screenshot](./logos/ChatBot.png)
+![Screenshot](./logos/ChatBot_.png)
 Next Features:  
 * WebSite text extraction
 * Word Documents 
