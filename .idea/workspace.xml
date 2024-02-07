@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="chatbot screenshot">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/chatbot_openai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chatbot_openai.iml" afterDir="false" />
+    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="README.md Changes">
+      <change afterPath="$PROJECT_DIR$/pages/upload_files.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faiss_index/index.faiss" beforeDir="false" afterPath="$PROJECT_DIR$/faiss_index/index.faiss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faiss_index/index.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/faiss_index/index.pkl" afterDir="false" />
     </list>
@@ -15,6 +15,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -211,7 +218,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707336885606</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add logo">
+      <option name="closed" value="true" />
+      <created>1707338434788</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707338434788</updated>
+    </task>
+    <task id="LOCAL-00016" summary="README.md Changes">
+      <option name="closed" value="true" />
+      <created>1707338637865</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707338637865</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +261,8 @@
     <MESSAGE value="htmlTemplates.py changes" />
     <MESSAGE value="README.md changes" />
     <MESSAGE value="chatbot screenshot" />
-    <option name="LAST_COMMIT_MESSAGE" value="chatbot screenshot" />
+    <MESSAGE value="add logo" />
+    <MESSAGE value="README.md Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md Changes" />
   </component>
 </project>
