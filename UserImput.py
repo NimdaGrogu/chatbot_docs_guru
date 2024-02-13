@@ -1,5 +1,4 @@
-from PromptEngOps import aumented_prompt_template
-from htmlTemplates import css, bot_template, user_template
+from htmlTemplates import  bot_template, user_template
 from langchain.memory import ConversationBufferMemory
 from langchain_openai import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain

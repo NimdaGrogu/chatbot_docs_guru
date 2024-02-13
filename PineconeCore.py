@@ -3,7 +3,7 @@ from pinecone import Index, Pinecone
 from langchain_pinecone import Pinecone
 from langchain_community.vectorstores import Pinecone
 
-# from dotenv import load_dotenv, find_dotenv
+# from dotenv import load_dotenv, find_doten
 import pinecone
 import os
 import json
@@ -18,7 +18,7 @@ class PineconeOperations(Pinecone):
         self.logger.info(f"Picone Operation: Initiation {self.__class__.__name__}")
         self.index = None
         #  Instance of the Parent class and get ready methods and attributes
-        super().__init__()
+        #super().__init__()
 
     def create_index(self, **kwargs) -> None:
         index_name = kwargs.get('pinecone_index_name', 'internal-knowledgebase')

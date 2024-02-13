@@ -1,7 +1,14 @@
 # Import necessary libraries
+import os
+import subprocess
+import logging
 from PyPDF2 import PdfReader
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
+
+# Basic configuration of logging
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def get_pdf_text(pdf_docs):
@@ -60,7 +67,6 @@ def read_pdf_doc(directory):
 
 
 def chunk_data(docs, chunk_size=800, chunk_overlap=50) -> list:
-
     # Initialize the text splitter with specific parameters
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,  # The maximum size of each chunk
@@ -68,3 +74,22 @@ def chunk_data(docs, chunk_size=800, chunk_overlap=50) -> list:
     )
     docs = text_splitter.split_documents(documents=docs)
     return docs
+
+
+def identify_file_type(file_path):
+    # Create a logger for this method
+    logger = logging.getLogger("identify_file_type")
+    logger.info(f"identify_file_type")
+    allowed_files = ['pdf', 'PDF', 'docx', 'text']
+    # Use the 'file' command to identify the file type
+    result = subprocess.run(['file', '--mime-type', '--brief', file_path], capture_output=True, text=True, check=True)
+    if result.returncode == 0:
+        file_type = result.stdout.strip()
+        for file in allowed_files:
+            if file in file_type:
+                logger.info(f"File type is {file_type}")
+                return file_type
+            logger.error(f"File type is not allowed {file_path}")
+            return None
+
+
