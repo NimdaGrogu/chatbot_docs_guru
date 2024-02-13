@@ -1,8 +1,9 @@
 streamlit
 streamlit-extras
 pandas
-langchain_community
-langchain_openai
+langchain-community
+langchain-pinecone
+langchain-openai
 python-dotenv
 traceback
 PyPDF2

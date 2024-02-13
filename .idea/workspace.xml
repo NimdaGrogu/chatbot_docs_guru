@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="Multichange">
+    <list default="true" id="90844cba-fd89-4e82-a698-f09675087b1b" name="Changes" comment="Multichange ChatBot.png">
+      <change afterPath="$PROJECT_DIR$/coding_qual_input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PineconeCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/PineconeCore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_chatbot.py" beforePathEscaped="$PROJECT_DIR$/_🤖chatbot.py" beforeDir="false" afterPath="$PROJECT_DIR$/_chatbot.py" afterPathEscaped="$PROJECT_DIR$/_🤖chatbot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faiss_index/index.faiss" beforeDir="false" afterPath="$PROJECT_DIR$/faiss_index/index.faiss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faiss_index/index.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/faiss_index/index.pkl" afterDir="false" />
     </list>
@@ -62,6 +68,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.t.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -83,6 +90,36 @@
       <recent name="$PROJECT_DIR$/logos" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="chatbot_openai" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/t.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.t" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -102,6 +139,9 @@
       <workItem from="1706745268545" duration="9961000" />
       <workItem from="1707163252510" duration="5695000" />
       <workItem from="1707245299909" duration="10745000" />
+      <workItem from="1707438484355" duration="56000" />
+      <workItem from="1707439089786" duration="7025000" />
+      <workItem from="1707516686935" duration="7866000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -247,7 +287,31 @@
       <option name="project" value="LOCAL" />
       <updated>1707341444446</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Multichange ChatBot.png">
+      <option name="closed" value="true" />
+      <created>1707341751924</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707341751924</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Multichange ChatBot.png">
+      <option name="closed" value="true" />
+      <created>1707341801739</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1707341801739</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Multichange ChatBot.png">
+      <option name="closed" value="true" />
+      <created>1707341900779</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1707341900779</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +342,10 @@
     <MESSAGE value="README.md Changes" />
     <MESSAGE value="Multipage app" />
     <MESSAGE value="Multichange" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multichange" />
+    <MESSAGE value="Multichange ChatBot.png" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multichange ChatBot.png" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/chatbot_openai$t.coverage" NAME="t Coverage Results" MODIFIED="1707517812851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

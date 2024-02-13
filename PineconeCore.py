@@ -1,6 +1,8 @@
 import time
 from pinecone import Index, Pinecone
-from langchain_community.vectorstores import Pinecone as VectorStorePinecone
+from langchain_pinecone import Pinecone
+from langchain_community.vectorstores import Pinecone
+
 # from dotenv import load_dotenv, find_dotenv
 import pinecone
 import os
@@ -86,17 +88,19 @@ class PineconeOperations(Pinecone):
         self.logger.info(f"Picone Operation: Embedding from Docs \n{len(documents)}")
 
         Pinecone.from_documents(documents=documents,
-                                embedding=embedding_model,
-                                index_name=self.index_name
-                                )
+                                embeddings=embedding_model,
+                                index_name = self.index.name)
+
+
+
         return None
 
-    def get_vectorstore(self, embedding_model, metadata_text_field: str) -> VectorStorePinecone:
+    def get_vectorstore(self, embedding_model, metadata_text_field: str) -> Pinecone:
         ## Connect to the index
         pinecone_client = self.connect_index()
         self.logger.info(f"Picone Operation: get_vectorstore ")
         text_field = metadata_text_field  # the metadata field that contains our text
-        vectorstore = VectorStorePinecone(
+        vectorstore = Pinecone(
             pinecone_client,
             embedding_model,
             text_key=text_field
