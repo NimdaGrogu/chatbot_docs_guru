@@ -1,8 +1,7 @@
-from VectordbOps import VectorStore
-from CorpusTextOps import get_text_chunks, get_pdf_text
-from UserImput import get_conversation_chain, handle_userinput
+
+from UserImput import handle_userinput
 import streamlit as st
-from htmlTemplates import css, bot_template, user_template, markdown
+from htmlTemplates import css
 import logging
 
 

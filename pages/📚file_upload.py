@@ -1,5 +1,5 @@
 from VectordbOps import VectorStore
-from CorpusTextOps import get_text_chunks, get_pdf_text
+from CorpusTextOps import get_text_chunks_ids, get_pdf_text_metadata, identify_file_type
 from UserImput import get_conversation_chain
 import streamlit as st
 from htmlTemplates import css
@@ -17,19 +17,21 @@ def main():
 
     st.header("Knowledge Base :open_book:")
 
-    st.subheader("From PDF's :books:")
-    pdf_docs = st.file_uploader(
-        "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
+    st.subheader("From Documents text and PDF only :books:")
+    docs = st.file_uploader(
+        "Upload your Files here and click on 'Process'", accept_multiple_files=True)
     if st.button("Process"):
         with st.spinner("Loading..."):
+
             # get pdf text
-            raw_text = get_pdf_text(pdf_docs)
+            raw_text, metadata = get_pdf_text_metadata(docs)
 
             # get the text chunks
-            text_chunks = get_text_chunks(raw_text)[0]
+            text_chunks, ids = get_text_chunks_ids(raw_text)
 
             # create vector store
             vs = VectorStore()
+            # Create an Index db using text_chunks and save it locally for further use
             vectorstore = vs.build_knowledgebase_faiss(text_chunks=text_chunks, save=True)
 
             # create conversation chain

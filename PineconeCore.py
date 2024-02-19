@@ -1,8 +1,8 @@
 import time
-from pinecone import Index, Pinecone
-from langchain_community.vectorstores import Pinecone as VectorStorePinecone
+from pinecone import Index, Pinecone, PodSpec
+from tqdm.auto import tqdm
+# from langchain_community.vectorstores import Pinecone as VectorStorePinecone
 # from dotenv import load_dotenv, find_dotenv
-import pinecone
 import os
 import json
 import logging
@@ -14,28 +14,37 @@ class PineconeOperations(Pinecone):
         # Create a logger for this class
         self.logger = logging.getLogger(self.__class__.__name__)
         self.logger.info(f"Picone Operation: Initiation {self.__class__.__name__}")
-        self.index = None
+
         #  Instance of the Parent class and get ready methods and attributes
         super().__init__()
 
-    def create_index(self, **kwargs) -> None:
+    def create_pinecone_index(self, **kwargs) -> None:
         index_name = kwargs.get('pinecone_index_name', 'internal-knowledgebase')
         # Pinecone Dimension OpenAIEmbeddigs default dimension other dimension # dimension = 768
-        pinecone_dimension = kwargs.get('pinecone_dimension', 1536)  # 1536 dim of text-embedding-ada-002
+        pinecone_dimension = kwargs.get('pinecone_dimensioddn', 1536)  # 1536 dim of text-embedding-ada-002
         # Pinecone metric
         pinecone_metric = kwargs.get("pinecone_metric", "cosine")
+
         self.logger.info(f"Picone Operation: Creating index if it doesn't exist")
+        # Delete the Index if already exist
+        if index_name in [index.name for index in self.list_indexes()]:
+            self.delete_index(index_name)
+
         # create index if there are no indexes found
-        # Create a pinecone index if not exist
+        # Create a pinecone index if not ex11ist
         #  Ensure  the correct EMBEDDING_DIMENSION that
         #  matches the output dimension of the embedding model.
-
-        if index_name not in pinecone.list_indexes().names():
-            pinecone.create_index(name=index_name, dimension=pinecone_dimension, metric=pinecone_metric)
-            self.logger.info("Wait for index to finish initialization")
-            while not pinecone.describe_index(index_name).status['ready']:
+        if index_name not in self.list_indexes().names():
+            self.logger.info(f"Index {index_name} not found in indexes list")
+            self.logger.info(f"Creating Index {index_name}, Wait for index to finish initialization")
+            environment = os.environ.get('PINECONE_ENVIRONMENT')
+            self.create_index(name=index_name,
+                              dimension=pinecone_dimension,
+                              metric=pinecone_metric,
+                              spec=PodSpec(environment=environment)
+                              )
+            while not self.describe_index(index_name).status['ready']:
                 time.sleep(2)
-            self.logger.info(f"{pinecone.describe_index(index_name).status['ready']}")
         else:
             self.logger.info(f"Pinecone Operation:  Index {index_name} found")
 
@@ -46,59 +55,27 @@ class PineconeOperations(Pinecone):
         # connect to a specific index
         # client for interacting with a Pinecone index via Index.
         self.index = self.Index(name=index_name)
-        self.logger.info(f"Picone Operation: Connection to index \n{self.fetch_stats()} ")
+        self.logger.info(f"Picone Operation: Connection to index ")
         return self.index  # A client for interacting with a Pinecone index via API.
 
-    def upsert(self, data):
-        # sample data of the format
-        # [
-        #     ("A", [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]),
-        #     ("B", [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]),
-        #     ("C", [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]),
-        #     ("D", [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4]),
-        #     ("E", [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5])
-        # ]
-        # Upsert sample data (5 8-dimensional vectors)
-        return json.loads(str(self.index.upsert(vectors=data, namespace="quickstart")).replace("'", '"'))
-
-    def fetch_stats(self):
+    def fetch_stats(self) -> None:
         # fetches stats about the index
         self.logger.info(f"Picone Operation: Fetching stats")
+        self.logger.info(f"{self.index.describe_index_stats()}")
 
-        stats = self.index.describe_index_stats()
-        return str(stats)
+    def pinecone_upsert(self, vectors: list, ids: list, pdf_metadata: str, batch_size=200):
+        prepped = []
+        index = self.connect_index()
+        self.logger.info(f"Picone Operation: pinecone_upsert ")
+        vect_ids = zip(vectors, ids)
+        for vector, id in tqdm(vect_ids, total=len(vectors), desc="Upserting data"):
+            prepped.append({'id': id,
+                            'values': vector,
+                            'metadata': pdf_metadata}
+                           )
+            if len(prepped) >= batch_size:
+                index.upsert(prepped)
+                prepped = []
 
-    def query(self, query_vector):
-        # query from the index, eg: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
-        response = self.index.query(
-            vector=query_vector,
-            top_k=2,
-            include_values=True,
-            namespace="quickstart"
-        )
-        return json.loads(str(response).replace("'", '"'))
-
-    def embed_from_docs(self, documents: list, embedding_model) -> None:
-        # constructs a Pinecone wrapper from raw documents
-        # This method is a user-friendly interface that embeds documents and
-        # adds them to a provided Pinecone index.
-        # The method returns an instance of the Pinecone class.
-        self.logger.info(f"Picone Operation: Embedding from Docs \n{len(documents)}")
-
-        Pinecone.from_documents(documents=documents,
-                                embedding=embedding_model,
-                                index_name=self.index_name
-                                )
-        return None
-
-    def get_vectorstore(self, embedding_model, metadata_text_field: str) -> VectorStorePinecone:
-        ## Connect to the index
-        pinecone_client = self.connect_index()
-        self.logger.info(f"Picone Operation: get_vectorstore ")
-        text_field = metadata_text_field  # the metadata field that contains our text
-        vectorstore = VectorStorePinecone(
-            pinecone_client,
-            embedding_model,
-            text_key=text_field
-        )
-        return vectorstore
+        time.sleep(2)
+        self.fetch_stats()
