@@ -1,6 +1,9 @@
+from typing import List
+
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import FAISS, Pinecone
+from langchain_community.vectorstores import FAISS
+from langchain_pinecone import Pinecone
 from PineconeCore import PineconeOperations
 from dotenv import load_dotenv, find_dotenv
 import traceback
@@ -86,10 +89,11 @@ class VectorStore(PineconeOperations):
             self.logger.error(f"Traceback: {traceback.print_exc()}")
 
     # %%
-    def get_embeddings(self, text_chunks: list, **kwargs) -> tuple:
+    def get_embeddings(self, text_chunks: list, **kwargs) -> list[list[float]]:
         """
                 Generates embbedings using OpenAI embeddings default or HuggingFace models.
 
+                :param metadata:
                 :param text_chunks: List of text chunks to convert into embeddings.
                 :param kwargs: Keyword arguments
                 to pass to embedding model initialization :return: A tuple containing a list with vector store
@@ -104,11 +108,8 @@ class VectorStore(PineconeOperations):
         # Use embeddings for vectorization
         self.logger.info(f"Getting embeddings using {self.embedding_model.__class__.__name__}")
         embeddings = self.embedding_model.embed_documents(text_chunks)
-        # Create Vector IDs: Create unique IDs for each of your text chunks.
-        # These IDs are necessary for indexing and querying the vectors.
-        ids = [f"chunk_{i}" for i in range(len(text_chunks))]
 
-        return embeddings, ids
+        return embeddings
 
     # %%
 
@@ -127,21 +128,25 @@ class VectorStore(PineconeOperations):
         else:
             self.embedding_model = self.embeddings_openai
 
-        self.connect_index()
-        self.embed_from_docs(documents=documents, embedding_model=self.embedding_model)
-
+        #
         return None
 
-    def get_vectorstore_pinecone(self, **kwargs) -> Pinecone:
+    def get_vectorstore_pinecone(self, text: list[str], ids: list[str], **kwargs) -> Pinecone:
+
         self.logger.info(f"VectorStore Operation: get_vectorstore_pinecone")
         if kwargs.get('model') == 'huggingface':
             self.embedding_model = self.embeddings_huggingface
         else:
             self.embedding_model = self.embeddings_openai
+        index_name = kwargs.get('pinecone_index_name', 'internal-knowledgebase')
 
-        metadata_text_field = kwargs.get('metadata_text_field', 'text').lower()
-        vectorstore = self.get_vectorstore(embedding_model=self.embedding_model,
-                                           metadata_text_field=metadata_text_field)
+        vectorstore = Pinecone.from_texts(
+            ids=ids,
+            batch_size=200,
+            texts=text,
+            index_name=index_name,
+            embedding=self.embedding_model,
+        )
 
         return vectorstore
 

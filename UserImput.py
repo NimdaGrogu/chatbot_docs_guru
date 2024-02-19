@@ -1,6 +1,6 @@
 from htmlTemplates import  bot_template, user_template
 from langchain.memory import ConversationBufferMemory
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatOpenAI, OpenAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain_community.callbacks import get_openai_callback
 import streamlit as st
@@ -19,6 +19,7 @@ def get_conversation_chain(vectorstore):
     # llm_hfai = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.9, "max_length":512})
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
+
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
         retriever=vectorstore.as_retriever(),
@@ -46,3 +47,4 @@ def handle_userinput(question: str):
             logger.error(f"Exception type: {type(e).__name__}")
             logger.error(f"Exception message: {e}")
             logger.error(f"Traceback: {traceback.print_exc()}")
+

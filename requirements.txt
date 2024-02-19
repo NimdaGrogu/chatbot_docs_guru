@@ -10,3 +10,7 @@ PyPDF2
 langchain
 watchdog
 pinecone-client
+matplotlib
+transformers
+openai
+tqdm
