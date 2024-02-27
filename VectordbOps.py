@@ -150,6 +150,16 @@ class VectorStore(PineconeOperations):
 
         return vectorstore
 
+    def similarity_search_pinecone(self, vectorstore: Pinecone, question: str):
+        sim_search = vectorstore.similarity_search(
+            query= question,# user question
+            k=3 #return the most relevant docs
+        )
+        # Get the text from the results
+
+        source_of_knowledgebase = "\n".join([x.page_content for x in sim_search])
+
+        return source_of_knowledgebase
 
 if __name__ == '__main__':
     txt = """FAISS FAISS (Facebook AI Similarity Search) is a library that allows developers to quickly search for 

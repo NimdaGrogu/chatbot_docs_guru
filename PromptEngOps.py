@@ -15,15 +15,9 @@ def prompt_template(question: str) -> str:
     return prompt.format(question=question)
 
 
-def aumented_prompt_template(query: str, vectorstore: Pinecone) -> str:
+def aumented_prompt_template(query: str, source_knowledge: str) -> str:
     logging.info(f"Augmented prompt, searching for: {query} in vectorstore")
-    sim_search = vectorstore.similarity_search(
-        query,  # our search query
-        k=3  # return 3 most relevant docs
-    )
 
-    # get the text from the results
-    source_knowledge = "\n".join([x.page_content for x in sim_search])
     # feed into an augmented prompt
     augmented_prompt = PromptTemplate.from_template(f"""
     You are a helpful assistant, Perform the following task:
@@ -40,8 +34,13 @@ def rag_prompt_template():
     template = """
         You are a helpful assistant, follow the following rules:
             1 - Answer the question {question} based only on the following context: {context}
-            2 - if you don't know the answer, reply I don't know the answer to that question
-            3-  Don't try to make up the answer 
+            2 - if you don't know the answer, Don't try to make up the answer, reply I don't know the answer to that question
+        
     """
-    rag_prompt = ChatPromptTemplate.from_template(template)
+
+    rag_prompt = PromptTemplate.from_template(template)
     return rag_prompt
+
+
+if __name__ == "__main__":
+    print(rag_prompt_template())

@@ -3,3 +3,5 @@
 /rag-chatbot.ipynb
 /.env
 /venv
+/faiss_index/
+/_🤖chatbot_rag_pinecone.py
