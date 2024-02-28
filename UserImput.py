@@ -1,8 +1,9 @@
-from htmlTemplates import  bot_template, user_template
+from htmlTemplates import bot_template, user_template
 from langchain.memory import ConversationBufferMemory
-from langchain_openai import ChatOpenAI, OpenAI
-from langchain.chains import ConversationalRetrievalChain
+from langchain_openai import ChatOpenAI
+from langchain.chains import ConversationalRetrievalChain, LLMChain
 from langchain_community.callbacks import get_openai_callback
+from PromptEngOps import rag_prompt_template
 import streamlit as st
 from dotenv import load_dotenv
 import logging
@@ -15,17 +16,24 @@ logger = logging.getLogger('User Input')
 
 
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9)
-    # llm_hfai = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.9, "max_length":512})
-    memory = ConversationBufferMemory(
-        memory_key='chat_history', return_messages=True)
+    with get_openai_callback() as cb:
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9)
+        # llm_hfai = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.9, "max_length":512})
+        memory = ConversationBufferMemory(
+            memory_key='chat_history', return_messages=True)
 
-    conversation_chain = ConversationalRetrievalChain.from_llm(
-        llm=llm,
-        retriever=vectorstore.as_retriever(),
-        memory=memory
-    )
-    return conversation_chain
+        prompt = rag_prompt_template()
+        question_generator_chain = LLMChain(llm=llm, prompt=prompt)
+
+        conversation_chain = ConversationalRetrievalChain.from_llm(
+            llm=llm,
+            retriever=vectorstore.as_retriever(),
+            memory=memory,
+            verbose=True,
+
+        )
+        print(cb)
+        return conversation_chain
 
 
 def handle_userinput(question: str):
@@ -47,4 +55,3 @@ def handle_userinput(question: str):
             logger.error(f"Exception type: {type(e).__name__}")
             logger.error(f"Exception message: {e}")
             logger.error(f"Traceback: {traceback.print_exc()}")
-

@@ -18,8 +18,13 @@ def main():
     st.header("Knowledge Base :open_book:")
 
     st.subheader("From Documents text and PDF only :books:")
+
     docs = st.file_uploader(
-        "Upload your Files here and click on 'Process'", accept_multiple_files=True)
+        "Upload your Files here and click on 'Process'",
+        accept_multiple_files=True,
+        type=["pdf"],
+        label_visibility="visible")
+
     if st.button("Process"):
         with st.spinner("Loading..."):
 
